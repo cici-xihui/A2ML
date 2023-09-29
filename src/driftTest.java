@@ -60,32 +60,6 @@ public class driftTest {
         LearningCurve learningCurve = new LearningCurve("learning evaluation instances");
         MultiTargetArffFileStream stream = new MultiTargetArffFileStream(data, position);
         stream.prepareForUse();
-        /*DifferentDrift stream2 = new DifferentDrift();
-        stream2.streamOption.setCurrentObject(new MultiTargetArffFileStream(dataset, position));
-        stream2.driftTypeOption.setValue("masque");
-        DifferentDrift stream3 = new DifferentDrift();
-        stream3.streamOption.setCurrentObject(new MultiTargetArffFileStream(dataset, position));
-        DifferentDrift stream4 = new DifferentDrift();
-        stream4.streamOption.setCurrentObject(new MultiTargetArffFileStream(dataset, position));
-        stream4.driftOption.setValue("labels");
-        ConceptDriftStream stream5 = new ConceptDriftStream();
-        stream5.streamOption.setCurrentObject(stream2);
-        stream5.driftstreamOption.setCurrentObject(stream1);
-        stream5.positionOption.setValue(1700);
-        stream5.widthOption.setValue(200);
-        ConceptDriftStream stream6 = new ConceptDriftStream();
-        stream6.streamOption.setCurrentObject(stream5);
-        stream6.driftstreamOption.setCurrentObject(stream3);
-        stream6.positionOption.setValue(3400);
-        stream6.widthOption.setValue(200);
-        ConceptDriftStream stream = new ConceptDriftStream();
-        stream.streamOption.setCurrentObject(stream6);
-        stream.driftstreamOption.setCurrentObject(stream4);
-        stream.positionOption.setValue(5100);
-        stream.widthOption.setValue(200);*/
-
-        //RBF 1.5->3.5, 2.8
-        //tree 1.8->3, 1.6
 
         stream.prepareForUse();
 
@@ -120,9 +94,7 @@ public class driftTest {
 
                 evaluator.reset();
             }
-            if(numberInstances == 7200) {
-                System.out.println(numberInstances + "\n");
-            }
+
             learner.trainOnInstance(trainInst);
             ++numberInstances;
 
@@ -142,9 +114,6 @@ public class driftTest {
         if (immediateResultStream != null) {
             immediateResultStream.close();
         }
-            if (numberInstances == 4940) {
-                System.out.println( "Number of instances : " + String.format("%d",numberInstances));
-            }
 
 
         System.out.println(numberInstances + " instances.");
@@ -164,7 +133,7 @@ public class driftTest {
         List<String> algos = Arrays.asList("HTps", "A2ML", "ODM", "EaHTps"); //"HTps","ISOUPTree", "AMRules", "MLSAMPkNN", "MLSAkNN", "A2ML", "ODM", "EaHTps", "EaISOUPTree", "GOOWEML", "AESAKNNS"
         List<String> dataset = Arrays.asList("Bookmarks"); //  "Booamarks", "Imdb"
         List<String> positions = Arrays.asList("208"); //  "208", "28"
-        List<Integer> frequences = Arrays.asList(120000); // (120000, 130000)
+        List<Integer> frequences = Arrays.asList(130000); // (120000, 130000)
         for(int i=0; i < algos.size(); i++){
             String alg = algos.get(i);
             System.out.println("\n" + alg + "\n");

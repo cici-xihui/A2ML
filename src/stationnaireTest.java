@@ -90,7 +90,7 @@ public class PrequentialTest {
     }
 
     public static void main(String[] args) throws IOException {
-        PrequentialTest batch =  new PrequentialTest(-1); //1000000s
+        PrequentialTest batch =  new PrequentialTest(-1);
 
         List<String> algos = Arrays.asList("A2ML");
 
@@ -99,10 +99,6 @@ public class PrequentialTest {
         List<Integer> frequences = Arrays.asList(87856);
         //19300, 7395, 87856, 10491, 13770, 1702, 7766, 3106, 120900, 43910, 6000, 2407, 3782, 28600, 2417
 
-
-        // original
-        //List<String> positions = Arrays.asList( "20", "-159", "-208", "-400", "-153", "-53", "-22", "-14", "28", "-101", "103", "-6", "22", "-22", "-14");
-        // random datasets // "20", "159", "208", "400", "153", "53", "22", "14", "28", "101", "103", "6", "22", "22", "14"
         List<String> positions = Arrays.asList( "208");
 
         for(int i=0; i < algos.size(); i++) {
@@ -112,7 +108,6 @@ public class PrequentialTest {
                 String position = positions.get(j);
                 int fre = frequences.get(j)/100;
                 System.out.println("\n" + alg + "\n");
-                // String stream = ".././original/" + data + ".arff";
                 String stream = ".././stationnary/" + data + ".arff";
                 System.out.println(data + "\n");
                 batch.sampleFrequencyOption.setValue(fre);
